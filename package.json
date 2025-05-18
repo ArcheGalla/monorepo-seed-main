@@ -5,8 +5,15 @@
     "apps/*",
     "packages/*"
   ],
+  "type": "module",
   "scripts": {
-    "docker:web": "docker build -f apps/web/Dockerfile -t my-web .",
+    "docker:web:build": "docker build -f apps/web/Dockerfile -t web .",
+    "docker:web:prune": "docker build --target prune -f apps/web/Dockerfile -t web .",
+    "docker:web:deps": "docker build --target deps -f apps/web/Dockerfile -t web .",
+    "docker:web:builder": "docker build --target builder -f apps/web/Dockerfile -t web .",
+    "docker:web:runner": "docker build --target runner -f apps/web/Dockerfile -t web .",
+    "docker:web": "docker build -f apps/web/Dockerfile -t web .",
+    "docker:web:run": "docker run -p 3000:3000 web",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",

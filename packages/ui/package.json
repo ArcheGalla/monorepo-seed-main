@@ -12,7 +12,6 @@
     "./*": "./dist/*.js"
   },
   "license": "MIT",
-  "packageManager": "npm@10.8.2",
   "scripts": {
     "build:styles": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
     "build:components": "tsc",

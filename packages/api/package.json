@@ -1,15 +1,13 @@
 {
   "name": "@repo/api",
- "version": "0.0.0",
+  "version": "0.0.0",
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev2": "npm run build --watch",
-    "dev": "echo 'Hello World!'",
+    "dev": "npm build --watch",
     "build": "tsc -b -v",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\""
   },
-  "packageManager": "npm@10.8.2",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [

@@ -13,7 +13,9 @@
     "docker:web:builder": "docker build --target builder -f apps/web/Dockerfile -t web .",
     "docker:web:runner": "docker build --target runner -f apps/web/Dockerfile -t web .",
     "docker:web": "docker build -f apps/web/Dockerfile -t web .",
+    "docker:api": "docker build -f apps/api/Dockerfile -t api .",
     "docker:web:run": "docker run -p 3000:3000 web",
+    "docker:api:run": "docker run -p 4000:4000 api",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
@@ -24,8 +26,8 @@
     "prettier": "^3.2.5",
     "turbo": "^2.5.3"
   },
-  "packageManager": "npm@10.5.0",
+  "packageManager": "npm@10.9.2",
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   }
 }

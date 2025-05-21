@@ -1,1 +1,11 @@
 node_modules
+.git
+.idea
+.vscode
+**/.next
+.eslintrc.cjs
+.gitignore
+.prettierrc
+.env.*
+Dockerfile*
+README.md

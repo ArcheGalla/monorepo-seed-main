@@ -76,7 +76,6 @@
     "@tanstack/react-query-devtools": "^5.75.5",
     "@repo/eslint-config": "0.0.0",
     "@repo/typescript-config": "0.0.0",
-    "@tailwindcss/postcss": "^4.1.5",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "eslint": "^9.26.0",

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+   <meta name="description" content="">
+   <title></title>
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+   <link
+  rel="stylesheet"
+  href="//cdn.jsdelivr.net/npm/docsify-theme-switcher@1/dist/theme-switcher.min.css"
+/>
+
+   <!-- Custom Styles -->
+   <style>
+    :root {
+      --base-background-color: #2C2924;
+    }
+    body.theme-dark {
+      --base-color: #FFFFFF;
+      --heading-color: #FFBF89;
+      --link-color--hover : #FFBF89;
+      --sidebar-background: #2F2F2E;
+      --sidebar-nav-link-color: #fff;
+      --sidebar-nav-strong-color: #FFF;
+      --sidebar-name-color: #fff;
+      --heading-h2-margin: .5rem 0 0;
+      --heading-h2-padding: 0;
+      --search-result-item-color: #FFF;
+      --search-result-item-font-size: .8rem;
+      --table-row-odd-background: #423B26;
+      --table-cell-border-width: 0;
+      --sidebar-toggle-icon-color: #FFF;
+      --sidebar-border-color: #5C574C;
+      --sidebar-nav-link-border-color--active: #638996;
+      --sidebar-nav-link-color--active: #aed4dc;
+      --sidebar-nav-link-before-color: #6C6659;
+      --code-theme-background: #33302A;
+      --code-inline-background: #444038;
+      --code-theme-text: #ffffe2;
+      --search-input-background-color: #2c2924;
+      --search-input-border-color: #5C574C;
+     }
+     body.theme-dark .sidebar-nav li {color: #FFBF89;}
+     body.theme-light {
+      --base-background-color: #e6e7e8;
+      --base-color: #414042;
+      --heading-color: #F37037;
+      --link-color--hover : #F37037;
+      --sidebar-background: rgb(28, 37, 54);
+      --sidebar-nav-link-color: #fff;
+      --sidebar-nav-strong-color: #FFF;
+      --sidebar-name-color: #fff;
+      --heading-h2-margin: .5rem 0 0;
+      --heading-h2-padding: 0;
+      --search-result-item-color: #FFF;
+      --search-result-item-font-size: .8rem;
+      --table-row-odd-background: hsl(47.08deg 57.77% 91.03%);
+      --table-cell-border-width: 0;
+      --sidebar-toggle-icon-color: #FFF;
+     }
+     body.theme-light .sidebar-nav li {color: #F37037;}
+     body.theme-light strong {color: #F37037;}
+     body.theme-light {background-color: #ffffff; color: #414042;}
+   </style>
+</head>
+<body>
+   <div id="app"></div>
+
+   <script>
+     // Docsify Configuration
+     window.$docsify = {
+      name: 'Relax Provider API',
+      repo: '',
+      loadSidebar: true,
+      subMaxLevel: 2,
+      relativePath: true,
+      alias: {
+        logo: '/_media/nest.png',
+        '/.*/_sidebar.md': '/_sidebar.md', // See #301
+        '/(.*)': '/$1',
+      },
+      search: {
+        maxAge: 86400000, // Expiration time, the default one day
+        paths: 'auto',
+        placeholder: 'Type to search',
+        noData: 'No Results!',
+        // Headline depth, 1 - 6
+        depth: 6,
+        hideOtherSidebarContent: false, // whether or not to hide other sidebar content
+     },
+     themeSelector: {
+        themes: [
+          { name: "Light Theme", class: "theme-light" },
+          { name: "Dark Theme", class: "theme-dark" },
+        ],
+      },
+    }
+   </script>
+
+   <!-- Required -->
+   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
+
+   <!-- Recommended -->
+   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
+   <script src="//cdn.jsdelivr.net/npm/docsify-theme-switcher@1/dist/theme-switcher.min.js"></script>
+
+</body>
+</html>

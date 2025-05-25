@@ -67,7 +67,7 @@ export const MainNavbar: React.FC = () => {
       >
         <NavbarContent>
           <NavbarBrand>
-            <Logo />
+            <Logo imageClassName="object-cover ml-4 h-[45px] rounded-none" />
           </NavbarBrand>
         </NavbarContent>
 

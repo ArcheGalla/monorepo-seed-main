@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  relax-postgres:
+    image: postgres:latest
+    container_name: relax-postgres
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "${DB_PORT}:5432"
+    networks:
+      - relax_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME} -d ${DB_DATABASE}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  relax-pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: relax-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    networks:
+      - relax_network
+    restart: unless-stopped
+    depends_on:
+      - relax-postgres
+
+  relax-api:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: relax-api:latest
+    container_name: relax-api
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - PORT=${PORT}
+      - DB_HOST=relax-postgres
+      - DB_PORT=5432
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_SYNCHRONIZE=${DB_SYNCHRONIZE}
+      - RELAX_PARTNER=${RELAX_PARTNER}
+      - RELAX_PARTNER_ID=${RELAX_PARTNER_ID}
+      - RELAX_LAUNCHER_URL=${RELAX_LAUNCHER_URL}
+      - BASIC_AUTH_ENABLED=${BASIC_AUTH_ENABLED}
+      - BASIC_AUTH_USERNAME=${BASIC_AUTH_USERNAME}
+      - BASIC_AUTH_PASSWORD=${BASIC_AUTH_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_LIFETIME_MINUTES=${JWT_LIFETIME_MINUTES}
+    ports:
+      - "${PORT}:3000"
+    networks:
+      - relax_network
+    restart: unless-stopped
+    depends_on:
+      relax-postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+
+networks:
+  relax_network:
+    driver: bridge

@@ -160,8 +160,8 @@ export class RollbackService {
 
       // Log and wrap unknown exceptions
       this.logger.error('Error processing rollback request', {
-        error: error.message,
-        stack: error.stack,
+        error: (error as Error).message,
+        stack: (error as Error).stack,
       });
 
       // Find the wallet to get the current balance for error handling

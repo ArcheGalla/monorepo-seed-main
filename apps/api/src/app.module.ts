@@ -1,10 +1,13 @@
-import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { RelaxModule } from './relax/relax.module';
-import { LoggerModule, ContextLogger } from './relax/common/logger';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
+import {ConfigModule, ConfigService} from '@nestjs/config';
+import {ServeStaticModule} from '@nestjs/serve-static';
+import {TypeOrmModule} from '@nestjs/typeorm';
+import {Module} from '@nestjs/common';
+
+import {join} from 'path';
+
+import {ContextLogger, LoggerModule} from './relax/common/logger';
+import {RelaxModule} from './relax/relax.module';
+
 
 @Module({
   imports: [
